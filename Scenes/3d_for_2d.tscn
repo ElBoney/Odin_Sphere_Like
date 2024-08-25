@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtodxcuroc6e0"]
+
+[ext_resource type="PackedScene" uid="uid://b7ty3feccddxq" path="res://Scenes/character_body_3d.tscn" id="1_pa0cd"]
+[ext_resource type="PackedScene" uid="uid://jd3dorc2ev04" path="res://Scenes/Platform.tscn" id="2_633ec"]
+
+[node name="3D for 2D experiment" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_pa0cd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74231, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32673, 15.1292)
+projection = 1
+current = true
+size = 10.0
+
+[node name="StaticBody3D" parent="." instance=ExtResource("2_633ec")]

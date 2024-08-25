@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyb30macv1uw6"]
+
+[ext_resource type="Script" path="res://Tests/Player_Script_Test.cs" id="1_bvqb1"]
+[ext_resource type="Texture2D" uid="uid://b4ryce4sid0ww" path="res://icon.svg" id="2_gywf3"]
+[ext_resource type="Script" path="res://Scripts/State_Machine.cs" id="3_s3u6d"]
+[ext_resource type="Script" path="res://Scripts/Player_Code/Grounded_State.cs" id="4_n6cca"]
+[ext_resource type="PackedScene" uid="uid://ce83kbl7xjwpr" path="res://addons/GD_NET_ScOUT/test_runner.tscn" id="5_eiujp"]
+[ext_resource type="Script" path="res://Scripts/Player_Code/Falling_State.cs" id="5_vrcde"]
+[ext_resource type="Script" path="res://Scripts/Player_Code/Jumping_State.cs" id="6_uyixm"]
+[ext_resource type="PackedScene" uid="uid://jd3dorc2ev04" path="res://Scenes/Platform.tscn" id="8_we3r8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpnns"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player_Script_Test_Scene" type="CharacterBody3D" parent="."]
+collision_mask = 3
+script = ExtResource("1_bvqb1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Script_Test_Scene"]
+shape = SubResource("BoxShape3D_jpnns")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player_Script_Test_Scene"]
+texture = ExtResource("2_gywf3")
+
+[node name="State_Machine" type="Node" parent="Player_Script_Test_Scene"]
+script = ExtResource("3_s3u6d")
+
+[node name="Player_States" type="Node" parent="Player_Script_Test_Scene"]
+
+[node name="Grounded" type="Node" parent="Player_Script_Test_Scene/Player_States"]
+script = ExtResource("4_n6cca")
+
+[node name="Falling" type="Node" parent="Player_Script_Test_Scene/Player_States"]
+script = ExtResource("5_vrcde")
+
+[node name="Jumping" type="Node" parent="Player_Script_Test_Scene/Player_States"]
+script = ExtResource("6_uyixm")
+
+[node name="StaticBody3D" parent="." instance=ExtResource("8_we3r8")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 10.6288)
+projection = 1
+size = 14.155
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TestRunner" parent="CanvasLayer" instance=ExtResource("5_eiujp")]
