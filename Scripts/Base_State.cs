@@ -18,4 +18,9 @@ public partial class Base_State : Node
     public virtual void Enter_State()
     {
     }
+
+    public virtual void State_Collision(Node3D colliding_body)
+    {
+
+    }
 }

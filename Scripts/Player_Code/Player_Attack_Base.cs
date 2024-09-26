@@ -1,8 +1,11 @@
 using Godot;
 using System;
 
-public partial class Attack1 : Player_State_Base
+public partial class Player_Attack_Base : Player_State_Base
 {
+    [Export] protected string attack_name = "Attack_One";
+    [Export] protected Vector2 Knockback = new Vector2(0, 10);
+
     public override void _Ready()
     {
         AnimationPlayer ap = GetNode<AnimationPlayer>("../../AnimationPlayer");
@@ -11,13 +14,15 @@ public partial class Attack1 : Player_State_Base
 
     public override void Enter_State()
     {
-        GetNode<AnimationPlayer>("../../AnimationPlayer").Play("Attack1");
+        GetNode<AnimationPlayer>("../../AnimationPlayer").Play(attack_name);
     }
     
-    public override void Handle_Process(double delta)
+    public override void State_Collision(Node3D colliding_body)
     {
-        Apply_Gravity();
-        Move_Left_Right();
+        if(colliding_body is Whack_Me whacked)
+        {
+            whacked.Get_Whacked(Knockback);
+        }
     }
 
     public void End_state(StringName anim_name)
