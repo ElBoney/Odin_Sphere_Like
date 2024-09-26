@@ -22,4 +22,9 @@ public partial class State_Machine : Node
         current_state.Handle_Process(delta);
     }
 
+    public void Pass_Collision(Node3D collider)
+    {
+        current_state.State_Collision(collider);
+    }
+
 }

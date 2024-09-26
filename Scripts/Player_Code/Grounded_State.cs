@@ -27,7 +27,7 @@ public partial class Grounded_State : Player_State_Base
         }
         if(@event.IsActionPressed("Attack"))
         {
-            this_state_machine.Change_Current_State(GetNode<Base_State>("../Attack1"));
+            this_state_machine.Change_Current_State(GetNode<Base_State>("../Attack_One"));
         }
     }
 }

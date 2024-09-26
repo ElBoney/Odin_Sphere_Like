@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtodxcuroc6e0"]
+[gd_scene load_steps=4 format=3 uid="uid://dtodxcuroc6e0"]
 
-[ext_resource type="PackedScene" uid="uid://b7ty3feccddxq" path="res://Scenes/character_body_3d.tscn" id="1_pa0cd"]
+[ext_resource type="PackedScene" uid="uid://b7ty3feccddxq" path="res://Scenes/Player.tscn" id="1_pa0cd"]
 [ext_resource type="PackedScene" uid="uid://jd3dorc2ev04" path="res://Scenes/Platform.tscn" id="2_633ec"]
+[ext_resource type="PackedScene" uid="uid://bsycbawqbduf8" path="res://Scenes/whack_me.tscn" id="3_6ob6o"]
 
 [node name="3D for 2D experiment" type="Node3D"]
 
@@ -15,3 +16,6 @@ current = true
 size = 10.0
 
 [node name="StaticBody3D" parent="." instance=ExtResource("2_633ec")]
+
+[node name="WhackMe" parent="." instance=ExtResource("3_6ob6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)

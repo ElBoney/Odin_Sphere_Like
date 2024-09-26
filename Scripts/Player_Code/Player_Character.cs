@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Godot;
 
@@ -29,5 +28,10 @@ public partial class Player_Character : CharacterBody3D
     public override void _PhysicsProcess(double delta)
     {
         state_machine.Pass_Process(delta);
+    }
+
+    public void Hit_Something(Node3D colliding_body)
+    {
+        state_machine.Pass_Collision(colliding_body);
     }
 }
