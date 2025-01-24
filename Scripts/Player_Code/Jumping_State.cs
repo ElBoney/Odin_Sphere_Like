@@ -23,4 +23,11 @@ public partial class Jumping_State : Player_State_Base
             this_state_machine.Change_Current_State(GetNode<Base_State>("../Falling"));
         }
     }
+    public override void Handle_Input(InputEvent @event)
+    {
+        if(@event.IsActionPressed("Attack"))
+        {
+            this_state_machine.Change_Current_State(GetNode<Base_State>("../Attack_One"));
+        };
+    }
 }

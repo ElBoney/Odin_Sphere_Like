@@ -42,6 +42,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_3kh4b"]
 resource_name = "Attack_Three"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,7 +50,7 @@ tracks/0/path = NodePath("Sprite3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, -3.14159), Vector3(0, 0, -5.49779), Vector3(0, 0, -6.28319)]
@@ -61,7 +62,7 @@ tracks/1/path = NodePath("Hitbox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.9),
+"times": PackedFloat32Array(0, 0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -158,7 +159,6 @@ script = ExtResource("6_u6xa2")
 
 [node name="Attack_One" type="Node" parent="Player_States"]
 script = ExtResource("7_i1kb0")
-Knockback = Vector2(0, 3)
 
 [node name="Attack_Two" type="Node" parent="Player_States"]
 script = ExtResource("8_oqhdf")
@@ -168,7 +168,7 @@ Knockback = Vector2(2, 3)
 [node name="Attack_Three" type="Node" parent="Player_States"]
 script = ExtResource("9_4huud")
 attack_name = "Attack_Three"
-Knockback = Vector2(30, 30)
+Knockback = Vector2(20, 20)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -176,13 +176,17 @@ libraries = {
 }
 
 [node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 collision_layer = 4
 collision_mask = 4
 monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 shape = SubResource("BoxShape3D_ns1ws")
+
+[node name="Sprite3D" type="Sprite3D" parent="Hitbox"]
+transform = Transform3D(0.5, 0, 0, 0, 0.592, 0, 0, 0, 0.592, 0, 0, 0)
+texture = ExtResource("1_g0r65")
 
 [connection signal="body_entered" from="Hitbox" to="." method="Hit_Something"]

@@ -14,4 +14,12 @@ public partial class Falling_State : Player_State_Base
         }
     }
 
+    public override void Handle_Input(InputEvent @event)
+    {
+        if(@event.IsActionPressed("Attack"))
+        {
+            this_state_machine.Change_Current_State(GetNode<Base_State>("../Attack_One"));
+        };
+    }
+
 }

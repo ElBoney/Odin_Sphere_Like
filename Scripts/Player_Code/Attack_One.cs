@@ -3,10 +3,14 @@ using System;
 
 public partial class Attack_One : Player_Attack_Base
 {
-
+    public override void Enter_State()
+    {
+        base.Enter_State();
+        y_velocity = 0;
+    }
     public override void Handle_Process(double delta)
     {
-        Apply_Gravity();
+        //Apply_Gravity();
         Move_Left_Right();
     }
 

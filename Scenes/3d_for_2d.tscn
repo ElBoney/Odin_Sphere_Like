@@ -10,7 +10,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Jumping" parent="CharacterBody3D/Player_States" index="2"]
-jump_hight = 6.0
+jump_duration = 0.7
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32673, 15.1292)
