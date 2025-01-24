@@ -6,7 +6,7 @@ public partial class Player_State_Base : Base_State
     public Player_Character player_;
     public float player_base_speed = 10;
     public static float y_velocity = 0;
-    public float gravity_increment = 0.5f;
+    public float gravity_increment = 0.2f;
     public const float terminal_velocity = -20;
 
     public virtual void Move_Left_Right()
