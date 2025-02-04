@@ -63,7 +63,7 @@ public partial class Player_State_Base : Base_State
 
     protected void Turn_Around()
     {
-        //↓ TODO: revise the way this happens (put in into the states too)
+        //TODO: consider revising the way this happens
         if (Input.IsActionPressed("Move_Right"))
         {
             player_.facing_direction = 1;
