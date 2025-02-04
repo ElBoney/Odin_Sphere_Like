@@ -17,6 +17,7 @@ public partial class Player_Attack_Base : Player_State_Base
     {
         player_.hitbox.Monitoring = false;
         GetNode<AnimationPlayer>("../../AnimationPlayer").Play(attack_name);
+        Turn_Around();
     }
     
     public override void State_Collision(Node3D colliding_body)

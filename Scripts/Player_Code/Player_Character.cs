@@ -28,16 +28,17 @@ public partial class Player_Character : CharacterBody3D
         state_machine.Pass_Input(@event);
 
         //↓ TODO: revise the way this happens (put in into the states too)
-        if (@event.IsActionPressed("Move_Right"))
-        {
-            facing_direction = 1;
-            hitbox.Position = new Vector3(1,0,0);
-        }
-        else if (@event.IsActionPressed("Move_Left"))
-        {
-            facing_direction = -1;
-            hitbox.Position = new Vector3(-1,0,0);
-        }
+        // if (@event.IsActionPressed("Move_Right"))
+        // {
+        //     facing_direction = 1;
+        //     //hitbox.Position = new Vector3(1,0,0);
+        // }
+        // else if (@event.IsActionPressed("Move_Left"))
+        // {
+        //     facing_direction = -1;
+        //     //hitbox.Position = new Vector3(-1,0,0);
+        // }
+        // Scale = new Vector3(facing_direction, 1,1);
     }
 
     public override void _PhysicsProcess(double delta)

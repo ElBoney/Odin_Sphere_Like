@@ -14,6 +14,7 @@ public partial class Grounded_State : Player_State_Base
     public override void Handle_Process(double delta)
     {
         Move_Left_Right();
+        Turn_Around();
 
         if(!player_.IsOnFloor())
         {

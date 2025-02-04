@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneScout="*res://addons/GD_NET_ScOUT/SceneScout.cs"
+Input_Manager="*res://Scripts/Player_Code/Input_Manager.cs"
 
 [dotnet]
 

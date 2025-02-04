@@ -7,6 +7,7 @@ public partial class Falling_State : Player_State_Base
     {
         Apply_Gravity();
         Move_Left_Right();
+        Turn_Around();
 
         if(player_.IsOnFloor())
         {

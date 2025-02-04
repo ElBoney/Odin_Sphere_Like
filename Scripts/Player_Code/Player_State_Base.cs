@@ -27,6 +27,7 @@ public partial class Player_State_Base : Base_State
 
     public override void _Ready()
     {
+        
         states.Add(state_name, this);
     }
 
@@ -60,9 +61,25 @@ public partial class Player_State_Base : Base_State
         }
     }
 
+    protected void Turn_Around()
+    {
+        //↓ TODO: revise the way this happens (put in into the states too)
+        if (Input.IsActionPressed("Move_Right"))
+        {
+            player_.facing_direction = 1;
+            player_.hitbox.Position = new Vector3(1,0,0);
+        }
+        else if (Input.IsActionPressed("Move_Left"))
+        {
+            player_.facing_direction = -1;
+            player_.hitbox.Position = new Vector3(-1,0,0);
+        }
+    }
+
     protected void Dash_Attack_Option()
     {
-        if(Input.IsActionPressed("Attack") && Mathf.Abs(Input.GetAxis("Move_Left", "Move_Right")) > 0.1f && dashes_remaining > 0)
+        Input_Manager input_manager = GetNode<Input_Manager>("/root/Input_Manager");
+        if(input_manager.is_attack_held && Mathf.Abs(Input.GetAxis("Move_Left", "Move_Right")) > 0.1f && dashes_remaining > 0)
         { this_state_machine.Change_Current_State(states[Player_State.Dash_Attack]);}
     }
 
