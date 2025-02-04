@@ -17,10 +17,19 @@ public partial class Jumping_State : Player_State_Base
         //Apply_Gravity();
         y_velocity -= Jump_Gravity * (float)delta;
         Move_Left_Right();
+        End_Jump();
 
         if (y_velocity <= 0)
         {
             this_state_machine.Change_Current_State(GetNode<Base_State>("../Falling"));
+        }
+    }
+
+    void End_Jump()
+    {
+        if (!Input.IsActionPressed("Jump"))
+        {
+            if (y_velocity > 2) { y_velocity = 2; }
         }
     }
     public override void Handle_Input(InputEvent @event)

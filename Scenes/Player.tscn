@@ -199,10 +199,10 @@ tracks/1/path = NodePath("Hitbox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_py4d1"]
@@ -256,13 +256,13 @@ state_name = 4
 [node name="Attack_Three" type="Node" parent="Player_States"]
 script = ExtResource("9_4huud")
 attack_name = "Attack_Three"
-Knockback = Vector2(20, 20)
+Knockback = Vector2(5, 5)
 state_name = 5
 
 [node name="Up_Attack" type="Node" parent="Player_States"]
 script = ExtResource("10_m1van")
 attack_name = "Up_Attack"
-Knockback = Vector2(2, 6)
+Knockback = Vector2(1, 10)
 state_name = 6
 
 [node name="Dash_Attack" type="Node" parent="Player_States"]
