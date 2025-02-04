@@ -7,6 +7,8 @@ public partial class Grounded_State : Player_State_Base
     public override void Enter_State()
     {
         y_velocity = -0.1f;
+        air_up_attacks_remaining = 3;
+        dashes_remaining = 3;
     }
 
     public override void Handle_Process(double delta)

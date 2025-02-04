@@ -15,6 +15,7 @@ public partial class Player_Attack_Base : Player_State_Base
 
     public override void Enter_State()
     {
+        player_.hitbox.Monitoring = false;
         GetNode<AnimationPlayer>("../../AnimationPlayer").Play(attack_name);
     }
     

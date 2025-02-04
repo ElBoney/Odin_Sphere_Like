@@ -10,6 +10,8 @@ public partial class Player_State_Base : Base_State
     public float gravity_increment = 0.2f;
     public const float terminal_velocity = -20;
     [Export] protected Player_State state_name;
+    protected static int dashes_remaining = 3;
+    protected static int air_up_attacks_remaining = 3;
     protected static Dictionary<Player_State, Player_State_Base> states = new Dictionary<Player_State, Player_State_Base>();
     public enum Player_State
     {
@@ -49,7 +51,7 @@ public partial class Player_State_Base : Base_State
     {
         if(Input.IsActionJustPressed("Attack"))
         {
-            if(Input.IsActionPressed("Up_Button"))
+            if(Input.IsActionPressed("Up_Button") && air_up_attacks_remaining > 0)
             {
                 this_state_machine.Change_Current_State(states[Player_State.Up_Attack]);
                 return;
@@ -60,7 +62,7 @@ public partial class Player_State_Base : Base_State
 
     protected void Dash_Attack_Option()
     {
-        if(Input.IsActionPressed("Attack") && Mathf.Abs(Input.GetAxis("Move_Left", "Move_Right")) > 0.1f)
+        if(Input.IsActionPressed("Attack") && Mathf.Abs(Input.GetAxis("Move_Left", "Move_Right")) > 0.1f && dashes_remaining > 0)
         { this_state_machine.Change_Current_State(states[Player_State.Dash_Attack]);}
     }
 
