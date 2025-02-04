@@ -11,6 +11,7 @@ public partial class Attack_One : Player_Attack_Base
     public override void Handle_Process(double delta)
     {
         //Apply_Gravity();
+        Dash_Attack_Option();
         Move_Left_Right();
     }
 

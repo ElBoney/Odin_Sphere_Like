@@ -25,9 +25,6 @@ public partial class Grounded_State : Player_State_Base
         {
             this_state_machine.Change_Current_State(GetNode<Base_State>("../Jumping"));
         }
-        if(@event.IsActionPressed("Attack"))
-        {
-            this_state_machine.Change_Current_State(GetNode<Base_State>("../Attack_One"));
-        }
+        Universal_Attack_Options();
     }
 }

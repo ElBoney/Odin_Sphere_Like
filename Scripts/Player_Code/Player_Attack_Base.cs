@@ -8,6 +8,7 @@ public partial class Player_Attack_Base : Player_State_Base
 
     public override void _Ready()
     {
+        base._Ready();
         AnimationPlayer ap = GetNode<AnimationPlayer>("../../AnimationPlayer");
         ap.AnimationFinished += End_state;
     }

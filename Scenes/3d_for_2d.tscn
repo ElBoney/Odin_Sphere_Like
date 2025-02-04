@@ -9,9 +9,6 @@
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_pa0cd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Jumping" parent="CharacterBody3D/Player_States" index="2"]
-jump_duration = 0.7
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32673, 15.1292)
 projection = 1
@@ -22,5 +19,3 @@ size = 10.0
 
 [node name="WhackMe" parent="." instance=ExtResource("3_6ob6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-
-[editable path="CharacterBody3D"]
