@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneScout="*res://addons/GD_NET_ScOUT/SceneScout.cs"
+Input_Manager="*res://Scripts/Player_Code/Input_Manager.cs"
 
 [dotnet]
 
@@ -47,6 +48,11 @@ Jump={
 Attack={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":75,"key_label":0,"unicode":107,"echo":false,"script":null)
+]
+}
+Up_Button={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"echo":false,"script":null)
 ]
 }
 

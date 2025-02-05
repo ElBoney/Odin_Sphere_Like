@@ -7,11 +7,17 @@ public partial class Falling_State : Player_State_Base
     {
         Apply_Gravity();
         Move_Left_Right();
+        Turn_Around();
 
         if(player_.IsOnFloor())
         {
             this_state_machine.Change_Current_State(GetNode<Base_State>("../Grounded"));
         }
+    }
+
+    public override void Handle_Input(InputEvent @event)
+    {
+        Universal_Attack_Options();
     }
 
 }

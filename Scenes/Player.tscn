@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b7ty3feccddxq"]
+[gd_scene load_steps=21 format=3 uid="uid://b7ty3feccddxq"]
 
 [ext_resource type="Texture2D" uid="uid://b4ryce4sid0ww" path="res://icon.svg" id="1_g0r65"]
 [ext_resource type="Script" path="res://Scripts/Player_Code/Player_Character.cs" id="1_s73t8"]
@@ -9,8 +9,122 @@
 [ext_resource type="Script" path="res://Scripts/Player_Code/Attack_One.cs" id="7_i1kb0"]
 [ext_resource type="Script" path="res://Scripts/Player_Code/Attack_Two.cs" id="8_oqhdf"]
 [ext_resource type="Script" path="res://Scripts/Player_Code/Attack_Three.cs" id="9_4huud"]
+[ext_resource type="Script" path="res://Scripts/Player_Code/Up_Attack.cs" id="10_m1van"]
+[ext_resource type="Script" path="res://Scripts/Player_Code/Dash_Attack.cs" id="11_n82je"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpnns"]
+
+[sub_resource type="Animation" id="Animation_3fnbo"]
+resource_name = "Attack_One"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_3kh4b"]
+resource_name = "Attack_Three"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, -3.14159), Vector3(0, 0, -5.49779), Vector3(0, 0, -6.28319)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_s7nyw"]
+resource_name = "Attack_Two"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.785398), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_u0jk1"]
+resource_name = "Dash_Attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_wc03a"]
 length = 0.001
@@ -38,88 +152,57 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
-[sub_resource type="Animation" id="Animation_s7nyw"]
-resource_name = "Attack_Two"
-length = 0.4
+[sub_resource type="Animation" id="Animation_0xsjx"]
+resource_name = "Up_Attack"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/path = NodePath("Hitbox:monitoring")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.785398), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_3fnbo"]
-resource_name = "Attack_One"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-
-[sub_resource type="Animation" id="Animation_3kh4b"]
-resource_name = "Attack_Three"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, -3.14159), Vector3(0, 0, -5.49779), Vector3(0, 0, -6.28319)]
-}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/path = NodePath("Sprite3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.9),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.261799), Vector3(0, 0, -0.261799), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.2, 0.5, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_py4d1"]
@@ -127,7 +210,9 @@ _data = {
 "Attack_One": SubResource("Animation_3fnbo"),
 "Attack_Three": SubResource("Animation_3kh4b"),
 "Attack_Two": SubResource("Animation_s7nyw"),
-"RESET": SubResource("Animation_wc03a")
+"Dash_Attack": SubResource("Animation_u0jk1"),
+"RESET": SubResource("Animation_wc03a"),
+"Up_Attack": SubResource("Animation_0xsjx")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ns1ws"]
@@ -152,22 +237,40 @@ script = ExtResource("4_dadfc")
 
 [node name="Falling" type="Node" parent="Player_States"]
 script = ExtResource("5_bakqv")
+state_name = 1
 
 [node name="Jumping" type="Node" parent="Player_States"]
 script = ExtResource("6_u6xa2")
+state_name = 2
 
 [node name="Attack_One" type="Node" parent="Player_States"]
 script = ExtResource("7_i1kb0")
+state_name = 3
 
 [node name="Attack_Two" type="Node" parent="Player_States"]
 script = ExtResource("8_oqhdf")
 attack_name = "Attack_Two"
-Knockback = Vector2(2, 10)
+Knockback = Vector2(2, 3)
+state_name = 4
 
 [node name="Attack_Three" type="Node" parent="Player_States"]
 script = ExtResource("9_4huud")
 attack_name = "Attack_Three"
-Knockback = Vector2(50, 50)
+Knockback = Vector2(5, 3)
+state_name = 5
+
+[node name="Up_Attack" type="Node" parent="Player_States"]
+script = ExtResource("10_m1van")
+attack_name = "Up_Attack"
+Knockback = Vector2(1, 10)
+state_name = 6
+
+[node name="Dash_Attack" type="Node" parent="Player_States"]
+script = ExtResource("11_n82je")
+dash_velocity = Vector2(10, 1)
+attack_name = "Dash_Attack"
+Knockback = Vector2(10, 5)
+state_name = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -175,13 +278,17 @@ libraries = {
 }
 
 [node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 collision_layer = 4
 collision_mask = 4
 monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 shape = SubResource("BoxShape3D_ns1ws")
+
+[node name="Sprite3D" type="Sprite3D" parent="Hitbox"]
+transform = Transform3D(0.5, 0, 0, 0, 0.592, 0, 0, 0, 0.592, 0, 0, 0)
+texture = ExtResource("1_g0r65")
 
 [connection signal="body_entered" from="Hitbox" to="." method="Hit_Something"]
